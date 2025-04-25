@@ -27,7 +27,7 @@ class TripFactory extends Factory
             'startTime' => $this->faker->time(),
             'endTime' => $this->faker->time(),
             'dateOfTrip' => $this->faker->date(),
-            'tripStatus' => $this->faker->randomElement(['completed', 'in-progress', 'cancelled']),
+            'tripStatus' => $this->faker->randomElement(['completed', 'ongoing', 'cancelled', 'completed']),
         ];
     }
 }
