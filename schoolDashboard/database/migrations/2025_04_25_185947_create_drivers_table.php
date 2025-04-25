@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('drivingPermit');
             $table->string('phoneNumber');
+            $table->string('gender');
             $table->string('address')->nullable();
             $table->timestamps();
         });
