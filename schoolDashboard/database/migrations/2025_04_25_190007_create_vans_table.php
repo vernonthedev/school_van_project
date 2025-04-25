@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('vans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('numberPlate');
-            $table->string('vanCapacity');
+            $table->string('name',20);
+            $table->string('numberPlate',10);
+            $table->bigInteger('vanCapacity')->nullable();
             $table->timestamps();
         });
     }

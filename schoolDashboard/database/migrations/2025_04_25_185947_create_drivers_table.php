@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('drivingPermit');
-            $table->string('phoneNumber');
-            $table->string('gender');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('name', 100);
+            $table->string('drivingPermit')->unique();
+            $table->string('phoneNumber', 20)->index();
+            $table->string('gender', 10);
             $table->string('address')->nullable();
             $table->timestamps();
         });

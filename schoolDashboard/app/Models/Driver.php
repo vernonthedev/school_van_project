@@ -27,4 +27,14 @@ class Driver extends Model
     {
         return $this->belongsTo(Van::class);
     }
+
+    /**
+     * Setting the format on how to save the phoneNumbers
+     * @param mixed $value
+     * @return void
+     */
+    public function setPhoneNumberAttribute($value)
+    {
+        $this->attributes['phoneNumber'] = preg_replace('/[^0-9]/', '', $value);
+    }
 }

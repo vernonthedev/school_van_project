@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('van_id')->constrained()->onDelete('cascade');
             $table->string('sourceRoute');
             $table->string('destinationRoute');
             $table->time('startTime');

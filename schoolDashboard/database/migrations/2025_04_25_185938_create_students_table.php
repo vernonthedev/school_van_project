@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('class')->nullable();
-            $table->string('gender');
+            $table->foreignId('parent_to_student_id')->constrained()->onDelete('cascade')->index();;
+            $table->string('name',100);
+            $table->string('class',50)->nullable()->index();
+            $table->string('gender',10);
             $table->timestamps();
         });
     }
