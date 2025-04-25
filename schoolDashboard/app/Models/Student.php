@@ -35,9 +35,6 @@ class Student extends Model
      */
     public function vans()
     {
-        return $this->belongsToMany(Van::class)
-            ->using(VanStudent::class)
-            ->withPivot('id')
-            ->withTimestamps();
+        return $this->belongsToMany(Van::class, 'van_student')->withTimestamps();
     }
 }

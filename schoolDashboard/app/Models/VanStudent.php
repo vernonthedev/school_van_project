@@ -3,10 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
+use \Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class VanStudent extends Pivot
 {
+    use HasFactory;
     protected $table = 'van_student';
+
 
     /**
      * Many to many relationship linking the students to the vans

@@ -11,7 +11,7 @@ use App\Models\Van;
 use App\Models\Trip;
 use App\Models\Student;
 use App\Models\Operator;
-use App\Models\VanStudent;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,32 +20,35 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Creating 10 parents with their students and each has two students
-        ParentToStudent::factory()->count(10)->has(Student::factory()->count(2))->create();
+        // Creating parents with students
+        ParentToStudent::factory()
+            ->count(10)
+            ->has(Student::factory()->count(2))
+            ->create();
 
-        // Creating 5 drivers
+        // Creating drivers and operators
         Driver::factory()->count(5)->create();
-
-        // Creating 5 operators
         Operator::factory()->count(5)->create();
 
-       // Creating vans and students first
+        // Creating vans
         $vans = Van::factory()->count(5)->create();
-        $students = Student::factory()->count(20)->create();
+        $students = Student::all();
 
-        // Attaching students to vans (many-to-many)
+        // Creating van-student relationships
         $vans->each(function ($van) use ($students) {
             $van->students()->attach(
                 $students->random(rand(5, 10))->pluck('id')
             );
         });
 
-        // Creating trips for each van-student combination
-        VanStudent::all()->each(function ($vanStudent) {
-            Trip::factory()->count(rand(1, 3))->create([
-                'van_student_id' => $vanStudent->id,
-                'van_id' => $vanStudent->van_id
-            ]);
+        // Creating trips using the existing van-student relationships
+        DB::table('van_student')->get()->each(function ($vanStudent) {
+            Trip::factory()
+                ->count(rand(1, 3))
+                ->create([
+                    'van_student_id' => $vanStudent->id,
+                    'van_id' => $vanStudent->van_id
+                ]);
         });
     }
 }

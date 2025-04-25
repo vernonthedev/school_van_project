@@ -19,6 +19,9 @@ class TripFactory extends Factory
     {
         return [
             'van_student_id' => VanStudent::factory(),
+            'van_id' => function (array $attributes) {
+                return VanStudent::find($attributes['van_student_id'])->van_id;
+            },
             'sourceRoute' => $this->faker->address,
             'destinationRoute' => $this->faker->address,
             'startTime' => $this->faker->time(),
