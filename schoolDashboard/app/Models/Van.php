@@ -37,4 +37,16 @@ class Van extends Model
     {
         return $this->hasMany(Trip::class);
     }
+
+    /**
+     * A van can have very many students
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Student, Van, \Illuminate\Database\Eloquent\Relations\Pivot>
+     */
+    public function students()
+    {
+        return $this->belongsToMany(Student::class)
+            ->using(VanStudent::class)
+            ->withPivot('id')
+            ->withTimestamps();
+    }
 }

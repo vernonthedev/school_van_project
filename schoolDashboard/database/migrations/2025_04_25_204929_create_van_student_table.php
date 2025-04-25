@@ -11,15 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('trips', function (Blueprint $table) {
+        // this is a pivot table linking the vans to students in a many to many relationship
+        Schema::create('van_student', function (Blueprint $table) {
             $table->id();
             $table->foreignId('van_id')->constrained()->onDelete('cascade');
-            $table->string('sourceRoute');
-            $table->string('destinationRoute');
-            $table->time('startTime');
-            $table->time('endTime');
-            $table->date('dateOfTrip');
-            $table->enum('tripStatus',['scheduled','ongoing','completed','cancelled'])->default('scheduled');
+            $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
+            // Ensuring unique combinations
+            $table->unique(['van_id', 'student_id']);
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('trips');
+        Schema::dropIfExists('van_student');
     }
 };

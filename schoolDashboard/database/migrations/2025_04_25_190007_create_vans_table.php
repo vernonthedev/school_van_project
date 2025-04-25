@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('vans', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('driver_id')->constrained()->onDelete('cascade');
+            $table->foreignId('operator_id')->constrained()->onDelete('cascade');
             $table->string('name',20);
             $table->string('numberPlate',10);
             $table->bigInteger('vanCapacity')->nullable();

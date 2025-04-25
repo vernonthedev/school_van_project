@@ -12,20 +12,48 @@ class Trip extends Model
     protected $fillable = ['sourceRoute','destinationRoute','startTime','endTime','dateOfTrip','tripStatus'];
 
     /**
-     * Relationship for the van that made the trip
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Van, Trip>
+     * on this trip, we assign a student to the van using our created pivot table
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<VanStudent, Trip>
      */
-    public function van()
+    public function vanStudent()
     {
-        return $this->belongsTo(Van::class);
+        return $this->belongsTo(VanStudent::class);
     }
 
     /**
-     * The student who made a specific trip
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<Student, Trip>
+     * assigning the van that is going to make this trip
+     */
+    public function van()
+    {
+        return $this->throughVanStudent()->van();
+    }
+
+    /**
+     * a student is assigned belongs to this trip through the student van pivot table relationship
      */
     public function student()
     {
-        return $this->belongsTo(Student::class);
+        return $this->throughVanStudent()->student();
+    }
+
+    /**
+     * this is the relationship that is acting as the pivot relationship for our pivot table
+     */
+    protected function throughVanStudent()
+    {
+        return $this->hasOneDeep(
+            [Van::class, Student::class],
+            [Trip::class, VanStudent::class],
+            [
+                'id',          // Trip table
+                'id',          // VanStudent table
+                'id'          // Van table
+            ],
+            [
+                'van_student_id',  // Trip table
+                'van_id',         // VanStudent table
+                'id'             // Van table
+            ]
+        );
     }
 }

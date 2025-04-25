@@ -21,11 +21,23 @@ class Student extends Model
     }
 
     /**
-     * the student makes very many trips
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany<Trip, Student>
+     * a student uses many vans to make many trips
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough<Trip, VanStudent, Student>
      */
     public function trips()
     {
-        return $this->hasMany(Trip::class);
+        return $this->hasManyThrough(Trip::class, VanStudent::class);
+    }
+
+    /**
+     * Student can enter many vans on different trips
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany<Van, Student, \Illuminate\Database\Eloquent\Relations\Pivot>
+     */
+    public function vans()
+    {
+        return $this->belongsToMany(Van::class)
+            ->using(VanStudent::class)
+            ->withPivot('id')
+            ->withTimestamps();
     }
 }

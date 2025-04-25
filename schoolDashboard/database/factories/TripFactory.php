@@ -3,9 +3,8 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use App\Models\Student;
 use App\Models\Van;
-
+use App\Models\VanStudent;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Trip>
  */
@@ -19,8 +18,7 @@ class TripFactory extends Factory
     public function definition(): array
     {
         return [
-            'van_id' => Van::factory(),
-            'student_id' => Student::factory(),
+            'van_student_id' => VanStudent::factory(),
             'sourceRoute' => $this->faker->address,
             'destinationRoute' => $this->faker->address,
             'startTime' => $this->faker->time(),
