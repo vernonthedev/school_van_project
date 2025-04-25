@@ -10,7 +10,7 @@ class StudentResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'parent_to_student_id' => $this->parent_to_student_id,
+            'parentId' => $this->parent_to_student_id,
             'name' => $this->name,
             'class' => $this->class,
             'gender' => $this->gender,

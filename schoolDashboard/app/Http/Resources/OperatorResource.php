@@ -10,7 +10,7 @@ class OperatorResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'user_id' => $this->user_id,
+            'userId' => $this->user_id,
             'name' => $this->name,
             'phoneNumber' => $this->phoneNumber,
             'address' => $this->address,
