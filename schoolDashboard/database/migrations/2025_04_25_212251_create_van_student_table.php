@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // this is a pivot table linking the vans to students in a many to many relationship
         Schema::create('van_student', function (Blueprint $table) {
             $table->id();
             $table->foreignId('van_id')->constrained()->onDelete('cascade');
             $table->foreignId('student_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-            // Ensuring unique combinations
             $table->unique(['van_id', 'student_id']);
-            $table->timestamps();
         });
     }
 
