@@ -35,9 +35,14 @@ class _LoginScreenState extends State<LoginScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Image.asset(
+                  "assets/icons/van.png",
+                  height: 150,
+                  fit: BoxFit.contain,
+                ),
                 // Login Title
                 Text(
-                  "Login",
+                  "Operator Login",
                   style: GoogleFonts.abrilFatface(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
@@ -46,61 +51,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 const SizedBox(height: 8),
                 Text(
-                  "Driver and Operator Login",
+                  "School Van Management System",
                   style: GoogleFonts.poppins(
                     fontSize: 16,
                     color: Colors.grey[600],
                   ),
                 ),
                 const SizedBox(height: 32),
-
-                // Google Login Button
-                OutlinedButton.icon(
-                  onPressed: () {
-                    // todo: Implement Google login
-                  },
-                  icon: const Icon(
-                    IonIcons.logo_google,
-                    color: Colors.red,
-                    size: 28,
-                  ),
-                  label: Text(
-                    "Login with Google",
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                  style: OutlinedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 16),
-                    side: BorderSide(
-                      color: const Color.fromARGB(255, 243, 132, 132),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 24),
-
-                // OR divider
-                Row(
-                  children: [
-                    Expanded(child: Divider(color: Colors.grey[300])),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Text(
-                        "OR",
-                        style: GoogleFonts.poppins(
-                          color: Colors.grey,
-                          fontSize: 14,
-                        ),
-                      ),
-                    ),
-                    Expanded(child: Divider(color: Colors.grey[300])),
-                  ],
-                ),
-                const SizedBox(height: 24),
 
                 // Email Field
                 Column(
@@ -201,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         child: Text(
                           "Forgot Password?",
                           style: GoogleFonts.poppins(
-                            color: const Color(0xFF3044CF),
+                            color: const Color(0xFF9D7BB0),
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                           ),
@@ -221,8 +178,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             // Login process
                           },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF3044CF),
-                    padding: EdgeInsets.symmetric(vertical: 16),
+                    backgroundColor: const Color.fromARGB(255, 66, 37, 82),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 16,
+                      horizontal: 24.0,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -238,13 +198,25 @@ class _LoginScreenState extends State<LoginScreen> {
                               color: Colors.white,
                             ),
                           )
-                          : Text(
-                            "Sign In",
-                            style: GoogleFonts.poppins(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                            ),
+                          : Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                "Sign In",
+                                style: GoogleFonts.poppins(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              const Icon(
+                                IonIcons.log_out,
+                                color: Colors.white,
+                                size: 20,
+                              ),
+                            ],
                           ),
                 ),
                 const SizedBox(height: 24),
