@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address')->nullable();
             $table->string('gender');
             $table->string('title')->nullable();
+            $table->string('role')->default('operator');
             $table->timestamps();
         });
     }

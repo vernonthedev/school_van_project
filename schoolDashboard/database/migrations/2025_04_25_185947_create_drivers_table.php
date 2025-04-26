@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('phoneNumber', 20)->index();
             $table->string('gender', 10);
             $table->string('address')->nullable();
+            $table->string('role')->default('driver');
             $table->timestamps();
         });
     }

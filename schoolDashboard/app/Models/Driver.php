@@ -10,7 +10,7 @@ class Driver extends Model
 {
     use HasFactory;
     // allowed columns
-    protected $fillable = ['name','drivingPermit','phoneNumber','gender','address'];
+    protected $fillable = ['name','drivingPermit','phoneNumber','gender','address','role'];
 
     /**
      * Relationship of driver to the user account

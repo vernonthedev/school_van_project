@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('gender',10);
             $table->string('occupation',100)->nullable();
             $table->string('address');
+            $table->string('role')->default('parent');
             $table->timestamps();
         });
     }

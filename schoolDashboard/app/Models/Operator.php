@@ -9,7 +9,7 @@ class Operator extends Model
 {
     use HasFactory;
     // allowed columns
-    protected $fillable = ['name','phoneNumber','gender','address', 'title'];
+    protected $fillable = ['name','phoneNumber','gender','address', 'title','role'];
 
     /**
      * Relationship of operator to the user account

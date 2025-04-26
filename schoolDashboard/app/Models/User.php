@@ -13,6 +13,12 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasApiTokens;
 
+    // My user roles
+    const ROLE_ADMIN = 'admin';
+    const ROLE_PARENT = 'parent';
+    const ROLE_DRIVER = 'driver';
+    const ROLE_OPERATOR = 'operator';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -22,6 +28,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role'
     ];
 
     /**

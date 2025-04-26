@@ -21,14 +21,11 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Creating parents with students
-        ParentToStudent::factory()
-            ->count(10)
-            ->has(Student::factory()->count(2))
-            ->create();
+        ParentToStudent::factory()->count(10)->has(Student::factory()->count(2))->create(['role' => User::ROLE_PARENT]);
 
         // Creating drivers and operators
-        Driver::factory()->count(5)->create();
-        Operator::factory()->count(5)->create();
+        Driver::factory()->count(5)->create(['role' => User::ROLE_DRIVER]);
+        Operator::factory()->count(5)->create(['role' => User::ROLE_OPERATOR]);
 
         // Creating vans
         $vans = Van::factory()->count(5)->create();
