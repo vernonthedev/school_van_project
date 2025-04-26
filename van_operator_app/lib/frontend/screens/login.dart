@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:icons_plus/icons_plus.dart';
+import 'package:provider/provider.dart';
+import 'package:van_operator_app/frontend/screens/home.dart';
+
+import '../../backend/providers/auth_provider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -21,6 +25,29 @@ class _LoginScreenState extends State<LoginScreen> {
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
+  }
+
+  /// After submitting the form, run the login functionality
+  Future<void> _submitForm() async {
+    if (!_formKey.currentState!.validate()) return;
+
+    setState(() => isLoading = true);
+
+    try {
+      await Provider.of<AuthProvider>(
+        context,
+        listen: false,
+      ).login(_emailController.text.trim(), _passwordController.text.trim());
+
+      // we go to home after successful login
+      Navigator.pushReplacementNamed(context, '/home');
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text('Login failed: ${e.toString()}')));
+    } finally {
+      setState(() => isLoading = false);
+    }
   }
 
   @override
@@ -171,12 +198,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Login Button
                 ElevatedButton(
-                  onPressed:
-                      isLoading
-                          ? null
-                          : () {
-                            // Login process
-                          },
+                  onPressed: isLoading ? null : () => _submitForm,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 66, 37, 82),
                     padding: const EdgeInsets.symmetric(
