@@ -77,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: const Color.fromARGB(255, 243, 132, 132),
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                   ),
                 ),
@@ -214,12 +214,17 @@ class _LoginScreenState extends State<LoginScreen> {
 
                 // Login Button
                 ElevatedButton(
-                  onPressed: isLoading ? null : () {},
+                  onPressed:
+                      isLoading
+                          ? null
+                          : () {
+                            // Login process
+                          },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color(0xFF3044CF),
                     padding: EdgeInsets.symmetric(vertical: 16),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: BorderRadius.circular(30),
                     ),
                     disabledBackgroundColor: Colors.grey[300],
                   ),
