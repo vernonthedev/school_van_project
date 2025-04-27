@@ -3,8 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// Service to handle all authenticated requests from the user to the api.
 class ApiService {
-  static const String _baseUrl =
-      'https://gold-butterfly-967358.hostingersite.com/api';
+  static const String _baseUrl = 'http://192.168.18.14:8000/api';
   static String? _token;
 
   static Future<http.Response> get(String endpoint) async {

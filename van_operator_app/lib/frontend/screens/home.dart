@@ -58,7 +58,7 @@ class HomeScreen extends StatelessWidget {
               onPressed: () {
                 ScaffoldMessenger.of(
                   context,
-                ).showSnackBar(SnackBar(content: Text("Trip has started")));
+                ).showSnackBar(SnackBar(content: Text("Trip has started!")));
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 66, 37, 82),
@@ -77,6 +77,76 @@ class HomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     "Start Trip",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Icon(IonIcons.timer, color: Colors.white, size: 20),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text("On Stop!")));
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 66, 37, 82),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 24.0,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                disabledBackgroundColor: Colors.grey[300],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Make Stop",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Icon(IonIcons.timer, color: Colors.white, size: 20),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("We have continued from stop!")),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 66, 37, 82),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 24.0,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                disabledBackgroundColor: Colors.grey[300],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Continue from stop",
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 16,

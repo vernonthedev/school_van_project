@@ -3,8 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class LoginService {
-  static const String _baseUrl =
-      'https://gold-butterfly-967358.hostingersite.com/api';
+  static const String _baseUrl = 'http://192.168.18.14:8000/api';
 
   static Future<Map<String, dynamic>> login(
     String email,
