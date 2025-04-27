@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'backend/providers/auth_provider.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.purple,
           visualDensity: VisualDensity.adaptivePlatformDensity,
+          textTheme: GoogleFonts.poppinsTextTheme(),
         ),
         home: const AuthWrapper(),
         routes: {'/home': (ctx) => const HomeScreen()},

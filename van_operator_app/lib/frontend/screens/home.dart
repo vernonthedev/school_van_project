@@ -65,6 +65,10 @@ class HomeScreen extends StatelessWidget {
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(SnackBar(content: Text("Trip has started!")));
+
+                // we send the start trip details
+
+                // we route to the map screen to show us the journey info
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color.fromARGB(255, 66, 37, 82),

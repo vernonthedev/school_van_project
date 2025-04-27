@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:van_operator_app/frontend/screens/attendance.dart';
 import 'package:van_operator_app/frontend/screens/profile.dart';
 
 import '../../backend/providers/auth_provider.dart';
@@ -38,7 +39,13 @@ class MyDrawer extends StatelessWidget {
             leading: Icon(Icons.person),
             title: Text('Attendance'),
             onTap: () {
+              //we first remove the context of the drawer
               Navigator.pop(context);
+              // after that we push to the attendance screen
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => AttendanceScreen()),
+              );
             },
           ),
           ListTile(
