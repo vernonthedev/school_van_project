@@ -26,6 +26,9 @@ class HomeScreen extends StatelessWidget {
                 ).logout();
                 // Navigation is handled by AuthWrapper
               } catch (e) {
+                // we are checking to see if the widget has been disposed before we render the snackbar.
+                if (!context.mounted) return;
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Logout failed: ${e.toString()}')),
                 );
@@ -56,6 +59,9 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                // we are checking to see if the widget has been disposed before we render the snackbar.
+                if (!context.mounted) return;
+
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(SnackBar(content: Text("Trip has started!")));
@@ -91,6 +97,9 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                // we are checking to see if the widget has been disposed before we render the snackbar.
+                if (!context.mounted) return;
+
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(SnackBar(content: Text("On Stop!")));
@@ -126,6 +135,9 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                // we are checking to see if the widget has been disposed before we render the snackbar.
+                if (!context.mounted) return;
+
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text("We have continued from stop!")),
                 );
@@ -161,6 +173,9 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
+                // we are checking to see if the widget has been disposed before we render the snackbar.
+                if (!context.mounted) return;
+
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(SnackBar(content: Text("Trip has ended")));
