@@ -19,7 +19,7 @@ class TripActions extends StatelessWidget {
           Column(
             children: [
               actionButton('Make Stop', Icons.pause, Colors.orange, () {
-                // Make stop logic
+                // stop logic
               }),
               const SizedBox(height: 12),
               actionButton('End Trip', Icons.stop, Colors.red, () {

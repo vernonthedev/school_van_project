@@ -54,10 +54,10 @@ class TripFilters extends StatelessWidget {
                     items:
                         [
                               'All',
-                              'Scheduled',
-                              'In Progress',
-                              'Completed',
-                              'Cancelled',
+                              'scheduled',
+                              'ongoing',
+                              'completed',
+                              'cancelled',
                             ]
                             .map(
                               (status) => DropdownMenuItem(
