@@ -11,11 +11,11 @@ class TripActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        if (trip.tripStatus == 'Scheduled')
+        if (trip.tripStatus == 'scheduled')
           actionButton('Start Trip', Icons.play_arrow, Colors.green, () {
             // Start trip logic
           }),
-        if (trip.tripStatus == 'In Progress')
+        if (trip.tripStatus == 'ongoing')
           Column(
             children: [
               actionButton('Make Stop', Icons.pause, Colors.orange, () {
@@ -27,7 +27,7 @@ class TripActions extends StatelessWidget {
               }),
             ],
           ),
-        if (trip.tripStatus == 'Completed' || trip.tripStatus == 'Cancelled')
+        if (trip.tripStatus == 'completed' || trip.tripStatus == 'cancelled')
           actionButton('View Trip Report', Icons.description, Colors.blue, () {
             // View report logic
           }),

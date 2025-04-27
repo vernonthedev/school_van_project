@@ -10,13 +10,13 @@ class TripOverviewCard extends StatelessWidget {
 
   Color _getStatusColor(String status) {
     switch (status) {
-      case 'Completed':
+      case 'completed':
         return Colors.green;
-      case 'In Progress':
+      case 'ongoing':
         return Colors.blue;
-      case 'Scheduled':
+      case 'scheduled':
         return Colors.orange;
-      case 'Cancelled':
+      case 'cancelled':
         return Colors.red;
       default:
         return Colors.grey;
