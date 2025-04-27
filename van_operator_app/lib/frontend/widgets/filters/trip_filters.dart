@@ -41,7 +41,7 @@ class TripFilters extends StatelessWidget {
                     icon: const Icon(Icons.calendar_today, size: 16),
                     label: Text(
                       selectedDateRange == null
-                          ? 'Select Date Range'
+                          ? 'Select Date'
                           : '${DateFormat('MMM d').format(selectedDateRange!.start)} - ${DateFormat('MMM d').format(selectedDateRange!.end)}',
                       style: GoogleFonts.poppins(),
                     ),
