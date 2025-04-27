@@ -17,7 +17,6 @@ class ProfileScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        elevation: 0,
         automaticallyImplyLeading: false,
         title: Text(
           "User Profile",
