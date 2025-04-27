@@ -1,7 +1,8 @@
 // lib/screens/home_screen.dart
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-
+import 'package:icons_plus/icons_plus.dart';
 import '../../backend/providers/auth_provider.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -37,8 +38,51 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Welcome ${user?.name ?? ''}'),
-            Text('Role: ${user?.role ?? ''}'),
+            Text(
+              'Welcome ${user?.name ?? ''}',
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w400,
+              ),
+            ),
+            Text(
+              'Role: ${user?.role ?? ''}',
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 66, 37, 82),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 16,
+                  horizontal: 24.0,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                disabledBackgroundColor: Colors.grey[300],
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Start Trip",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Icon(IonIcons.timer, color: Colors.white, size: 20),
+                ],
+              ),
+            ),
           ],
         ),
       ),
