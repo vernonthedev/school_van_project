@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../widgets/student_card.dart';
 
 class AttendanceScreen extends StatelessWidget {
@@ -12,10 +11,9 @@ class AttendanceScreen extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(16),
         children: [
-          studentCard(studentName: "John Doe", context: context),
-          studentCard(studentName: "Jane Smith", context: context),
-          studentCard(studentName: "Alex Johnson", context: context),
-          // You can add more StudentCards here
+          studentCard(studentName: "vernon", context: context),
+          studentCard(studentName: "joshua", context: context),
+          studentCard(studentName: "mark", context: context),
         ],
       ),
     );
