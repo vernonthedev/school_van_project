@@ -10,6 +10,9 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // get access to the user info
+    final user = Provider.of<AuthProvider>(context).user;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -50,7 +53,7 @@ class ProfileScreen extends StatelessWidget {
 
             // Name
             Text(
-              "Name",
+              user?.name ?? "",
               style: GoogleFonts.poppins(
                 fontSize: 24,
                 fontWeight: FontWeight.w600,
@@ -60,7 +63,14 @@ class ProfileScreen extends StatelessWidget {
 
             // Email
             Text(
-              "Email",
+              user?.email ?? "",
+              style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[600]),
+            ),
+            const SizedBox(height: 4),
+
+            // Email
+            Text(
+              user?.role.toUpperCase() ?? "",
               style: GoogleFonts.poppins(fontSize: 14, color: Colors.grey[600]),
             ),
             const SizedBox(height: 32),
