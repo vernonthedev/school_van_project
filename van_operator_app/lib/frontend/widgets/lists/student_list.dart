@@ -10,21 +10,20 @@ class StudentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Mock student data
     final students = [
-      {'id': 101, 'name': 'John Doe', 'grade': '5th', 'address': '123 Main St'},
+      {
+        'id': 101,
+        'name': 'Mumbere Joshua',
+        'grade': '5th',
+        'address': '123 Main St',
+      },
       {
         'id': 102,
-        'name': 'Jane Smith',
+        'name': 'David Goliath',
         'grade': '4th',
         'address': '456 Oak Ave',
       },
-      {
-        'id': 103,
-        'name': 'Mike Johnson',
-        'grade': '6th',
-        'address': '789 Pine Rd',
-      },
+      {'id': 103, 'name': 'Amos Dev', 'grade': '6th', 'address': '789 Pine Rd'},
     ];
 
     return Column(

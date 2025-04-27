@@ -10,7 +10,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // get access to the user info
+    // getting access to the user info
     final user = Provider.of<AuthProvider>(context).user;
 
     return Scaffold(

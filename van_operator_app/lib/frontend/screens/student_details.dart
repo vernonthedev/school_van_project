@@ -39,7 +39,7 @@ class _StudentDetailsContent extends StatelessWidget {
               style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(height: 10),
-            Text("Parent Name: Mr. John Doe"),
+            Text("Parent Name: Mr. Masamba"),
             Text("Phone: +256 700 123 456"),
             Text("Address: Kampala"),
             const Spacer(),

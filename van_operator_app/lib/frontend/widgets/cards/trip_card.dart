@@ -69,13 +69,6 @@ class TripCard extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Text(
-                          '${trip.sourceRoute} to ${trip.destinationRoute}',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            color: Colors.grey[600],
-                          ),
-                        ),
                       ],
                     ),
                   ),
@@ -99,7 +92,7 @@ class TripCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '${trip.startTime} - ${trip.endTime}',
+                    'Time: ${trip.startTime} - ${trip.endTime}',
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
