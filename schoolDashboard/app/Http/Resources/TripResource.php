@@ -11,7 +11,7 @@ class TripResource extends JsonResource
     {
         return [
             'vanId' => $this->van_id,
-            'van_student_id' => $this->van_student_id,
+            'vanStudentId' => $this->van_student_id,
             'sourceRoute' => $this->sourceRoute,
             'destinationRoute' => $this->destinationRoute,
             'startTime' => $this->startTime,
