@@ -41,7 +41,7 @@ class TripOverviewCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Text(
-                  'Van #${trip.vanId}',
+                  'Van:${trip.vanId}',
                   style: GoogleFonts.poppins(
                     fontSize: 20,
                     fontWeight: FontWeight.w600,
